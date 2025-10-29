@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl;
+  }
+
+  /* Section */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Heading */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 font-heading;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-slate-600 dark:text-slate-400 text-center mb-12;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-dark;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
