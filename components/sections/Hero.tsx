@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiPhone } from 'react-icons/fi';
 import { getWhatsAppLink } from '@/lib/data';
@@ -108,13 +109,17 @@ const Hero = () => {
             className="relative hidden lg:block"
           >
             <div className="relative w-full h-[600px]">
-              {/* Placeholder for hero image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                <div className="text-center text-white/50">
-                  <div className="text-6xl mb-4">🚗</div>
-                  <p className="text-lg">Hero görseli buraya gelecek</p>
-                  <p className="text-sm mt-2">/public/images/hero/</p>
-                </div>
+              {/* Main Hero Image */}
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/hero/welcomeImage.jpg"
+                  alt="Profesyonel Oto Servis"
+                  fill
+                  className="object-cover rounded-3xl"
+                  priority
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent rounded-3xl"></div>
               </div>
 
               {/* Floating Cards */}

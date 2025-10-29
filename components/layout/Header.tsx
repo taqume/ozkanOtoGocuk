@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMenu, FiX, FiSun, FiMoon, FiFacebook, FiInstagram } from 'react-icons/fi';
 import { CONTACT_INFO } from '@/lib/data';
@@ -79,11 +80,14 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="text-2xl font-bold">
-              <span className="text-primary">Özkan</span>
-              <span className={isScrolled ? 'text-slate-900 dark:text-white' : 'text-white'}>
-                {' '}Oto
-              </span>
+            <div className="relative h-12 w-48">
+              <Image
+                src="/images/logo/logo.png"
+                alt="Özkan Oto"
+                fill
+                className="object-contain object-left"
+                priority
+              />
             </div>
           </Link>
 

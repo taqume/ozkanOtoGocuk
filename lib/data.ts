@@ -134,12 +134,10 @@ export const BRANDS: Brand[] = [
   { id: 'bmw', name: 'BMW', logo: '/images/brands/bmw.png' },
   { id: 'audi', name: 'Audi', logo: '/images/brands/audi.png' },
   { id: 'volkswagen', name: 'Volkswagen', logo: '/images/brands/volkswagen.png' },
-  { id: 'renault', name: 'Renault', logo: '/images/brands/renault.png' },
-  { id: 'peugeot', name: 'Peugeot', logo: '/images/brands/peugeot.png' },
-  { id: 'ford', name: 'Ford', logo: '/images/brands/ford.png' },
-  { id: 'toyota', name: 'Toyota', logo: '/images/brands/toyota.png' },
-  { id: 'honda', name: 'Honda', logo: '/images/brands/honda.png' },
-  { id: 'hyundai', name: 'Hyundai', logo: '/images/brands/hyundai.png' },
+  { id: 'volvo', name: 'Volvo', logo: '/images/brands/volvo.png' },
+  { id: 'chevrolet', name: 'Chevrolet', logo: '/images/brands/chevrolet.png' },
+  { id: 'nissan', name: 'Nissan', logo: '/images/brands/nissan.png' },
+  { id: 'citroen', name: 'Citroën', logo: '/images/brands/citroen.png' },
 ];
 
 // WhatsApp mesaj linki oluşturma

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiCheck, FiAward, FiUsers, FiTrendingUp } from 'react-icons/fi';
 
@@ -44,14 +45,15 @@ const About = () => {
             className="relative"
           >
             <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
-              {/* Placeholder for about image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-slate-200 dark:to-slate-800 flex items-center justify-center">
-                <div className="text-center text-slate-600 dark:text-slate-400">
-                  <div className="text-6xl mb-4">🔧</div>
-                  <p className="text-lg font-semibold">Hakkımızda Görseli</p>
-                  <p className="text-sm mt-2">/public/images/hero/about.jpg</p>
-                </div>
-              </div>
+              <Image
+                src="/images/hero/welcomeMan.png"
+                alt="Özkan Oto Profesyonel Ekip"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
 
               {/* Overlay Stats Card */}
               <div className="absolute bottom-6 left-6 right-6 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-6">

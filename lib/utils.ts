@@ -1,8 +1,8 @@
-import { type ClassValue, clsx } from 'clsx';
+// Utility fonksiyonlar
 
-// Tailwind sınıflarını birleştirmek için utility fonksiyon
-export function cn(...inputs: ClassValue[]) {
-  return clsx(inputs);
+// Tailwind sınıflarını birleştirmek için basit fonksiyon
+export function cn(...classes: (string | undefined | null | false)[]) {
+  return classes.filter(Boolean).join(' ');
 }
 
 // Scroll animasyonu için intersection observer hook

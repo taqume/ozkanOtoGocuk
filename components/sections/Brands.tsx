@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BRANDS } from '@/lib/data';
 
@@ -55,14 +56,16 @@ const Brands = () => {
             {duplicatedBrands.map((brand, index) => (
               <div
                 key={`${brand.id}-${index}`}
-                className="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 hover:scale-110 transition-transform"
+                className="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-4 hover:scale-110 transition-transform"
               >
-                {/* Placeholder for brand logos */}
-                <div className="text-center">
-                  <div className="text-3xl mb-2">🚗</div>
-                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                    {brand.name}
-                  </div>
+                <div className="relative w-full h-full">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    fill
+                    className="object-contain"
+                    sizes="128px"
+                  />
                 </div>
               </div>
             ))}
@@ -86,13 +89,6 @@ const Brands = () => {
               </span>
             ))}
           </div>
-          <p className="text-slate-600 dark:text-slate-400 mt-6 text-sm">
-            💡 <strong>Not:</strong> Marka logolarını{' '}
-            <code className="bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded text-xs">
-              /public/images/brands/
-            </code>{' '}
-            klasörüne ekleyerek görsel olarak gösterebilirsiniz.
-          </p>
         </motion.div>
 
         {/* Additional Info */}
