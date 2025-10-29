@@ -3,18 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { FiMenu, FiX, FiSun, FiMoon, FiFacebook, FiInstagram } from 'react-icons/fi';
+import { FiMenu, FiX, FiFacebook, FiInstagram } from 'react-icons/fi';
 import { CONTACT_INFO } from '@/lib/data';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -33,12 +29,12 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg'
+          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
       {/* Top Bar */}
-      <div className={`border-b border-slate-200 dark:border-slate-800 ${isScrolled ? 'hidden' : 'block'}`}>
+      <div className={`border-b border-slate-800 ${isScrolled ? 'hidden' : 'block'}`}>
         <div className="container-custom py-2">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-4">
@@ -98,7 +94,7 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition-colors hover:text-primary ${
-                  isScrolled ? 'text-slate-700 dark:text-slate-300' : 'text-white'
+                  isScrolled ? 'text-slate-300' : 'text-white'
                 }`}
               >
                 {link.label}
@@ -108,25 +104,6 @@ const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
-            {/* Theme Toggle */}
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className={`p-2 rounded-lg transition-colors ${
-                  isScrolled
-                    ? 'hover:bg-slate-100 dark:hover:bg-slate-800'
-                    : 'hover:bg-white/10'
-                }`}
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? (
-                  <FiSun size={20} className={isScrolled ? '' : 'text-white'} />
-                ) : (
-                  <FiMoon size={20} />
-                )}
-              </button>
-            )}
-
             {/* CTA Button */}
             <Link
               href="/iletisim"
@@ -140,15 +117,15 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`lg:hidden p-2 rounded-lg transition-colors ${
                 isScrolled
-                  ? 'hover:bg-slate-100 dark:hover:bg-slate-800'
+                  ? 'hover:bg-slate-800'
                   : 'hover:bg-white/10'
               }`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <FiX size={24} className={isScrolled ? '' : 'text-white'} />
+                <FiX size={24} className="text-white" />
               ) : (
-                <FiMenu size={24} className={isScrolled ? '' : 'text-white'} />
+                <FiMenu size={24} className="text-white" />
               )}
             </button>
           </div>
@@ -156,14 +133,14 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="lg:hidden mt-4 py-4 border-t border-slate-800">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-medium transition-colors hover:text-primary"
+                  className="font-medium transition-colors hover:text-primary text-slate-300"
                 >
                   {link.label}
                 </Link>

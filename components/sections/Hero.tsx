@@ -8,13 +8,20 @@ import { getWhatsAppLink } from '@/lib/data';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('/images/hero/pattern.svg')] opacity-10"></div>
-      
-      {/* Animated Gradient Orbs */}
-      <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/30 rounded-full filter blur-3xl animate-float"></div>
-      <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent/20 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Full Screen Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero/welcomeImage.jpg"
+          alt="Oto Servis Arka Plan"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-slate-900/70"></div>
+      </div>
 
       <div className="container-custom relative z-10 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -101,60 +108,56 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Image/Illustration */}
+          {/* Right Content - Overlay Man Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-            <div className="relative w-full h-[600px]">
-              {/* Main Hero Image */}
-              <div className="relative w-full h-full">
-                <Image
-                  src="/images/hero/welcomeImage.jpg"
-                  alt="Profesyonel Oto Servis"
-                  fill
-                  className="object-cover rounded-3xl"
-                  priority
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent rounded-3xl"></div>
-              </div>
-
-              {/* Floating Cards */}
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-10 -right-10 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-4 max-w-[200px]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-3 rounded-xl">
-                    <FiPhone className="text-primary" size={24} />
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">7/24 Destek</div>
-                    <div className="font-bold text-slate-900 dark:text-white">Hızlı Yanıt</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-10 -left-10 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-4 max-w-[200px]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="bg-accent/10 p-3 rounded-xl">
-                    <span className="text-2xl">🏆</span>
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">Garantili</div>
-                    <div className="font-bold text-slate-900 dark:text-white">Kalite</div>
-                  </div>
-                </div>
-              </motion.div>
+            <div className="relative w-full h-[700px]">
+              <Image
+                src="/images/hero/welcomeMan.png"
+                alt="Profesyonel Teknisyen"
+                fill
+                className="object-contain object-bottom"
+                priority
+                quality={90}
+              />
             </div>
+
+            {/* Floating Cards */}
+            <motion.div
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute top-10 -right-10 bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-2xl p-4 max-w-[200px] border border-slate-700"
+            >
+              <div className="flex items-center gap-3">
+                <div className="bg-primary/10 p-3 rounded-xl">
+                  <FiPhone className="text-primary" size={24} />
+                </div>
+                <div>
+                  <div className="text-xs text-slate-400">7/24 Destek</div>
+                  <div className="font-bold text-white">Hızlı Yanıt</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, 20, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+              className="absolute bottom-10 -left-10 bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-2xl p-4 max-w-[200px] border border-slate-700"
+            >
+              <div className="flex items-center gap-3">
+                <div className="bg-accent/10 p-3 rounded-xl">
+                  <span className="text-2xl">🏆</span>
+                </div>
+                <div>
+                  <div className="text-xs text-slate-400">Garantili</div>
+                  <div className="font-bold text-white">Kalite</div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

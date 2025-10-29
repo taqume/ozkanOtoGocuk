@@ -35,13 +35,13 @@ export default function HakkimizdaPage() {
       <About />
 
       {/* Mission & Vision */}
-      <section className="section bg-white dark:bg-slate-900">
+      <section className="section bg-slate-900">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="card">
               <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-2xl font-bold mb-4">Misyonumuz</h3>
-              <p className="text-slate-600 dark:text-slate-400">
+              <h3 className="text-2xl font-bold mb-4 text-white">Misyonumuz</h3>
+              <p className="text-slate-400">
                 Aracınızın orijinal değerini koruyarak, en kaliteli boyasız göçük düzeltme 
                 ve kaporta onarım hizmetini sunmak. Müşteri memnuniyetini her zaman ön planda 
                 tutarak, sektörde güvenilir bir isim olmak.
@@ -49,8 +49,8 @@ export default function HakkimizdaPage() {
             </div>
             <div className="card">
               <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-2xl font-bold mb-4">Vizyonumuz</h3>
-              <p className="text-slate-600 dark:text-slate-400">
+              <h3 className="text-2xl font-bold mb-4 text-white">Vizyonumuz</h3>
+              <p className="text-slate-400">
                 Türkiye'nin en büyük ve en güvenilir boyasız göçük düzeltme servisi olmak. 
                 Sürekli gelişen teknoloji ve ekipmanlarla, sektörde öncü olmaya devam etmek.
                 Her müşterimize VIP hizmet standardı sunmak.
@@ -61,7 +61,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section bg-slate-50 dark:bg-slate-800">
+      <section className="section bg-slate-800">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="section-title">
@@ -105,8 +105,8 @@ export default function HakkimizdaPage() {
             ].map((item, index) => (
               <div key={index} className="card text-center">
                 <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400">{item.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                <p className="text-slate-400">{item.description}</p>
               </div>
             ))}
           </div>

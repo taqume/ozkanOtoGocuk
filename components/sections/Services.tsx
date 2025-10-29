@@ -7,7 +7,7 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const Services = () => {
   return (
-    <section id="hizmetler" className="section bg-slate-50 dark:bg-slate-800">
+    <section id="hizmetler" className="section bg-slate-800">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -53,7 +53,7 @@ const Services = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-slate-600 dark:text-slate-400 mb-4">
+              <p className="text-slate-400 mb-4">
                 {service.description}
               </p>
 
@@ -62,7 +62,7 @@ const Services = () => {
                 {service.features.map((feature, idx) => (
                   <li
                     key={idx}
-                    className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"
+                    className="flex items-center gap-2 text-sm text-slate-300"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     {feature}

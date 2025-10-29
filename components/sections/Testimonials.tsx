@@ -6,7 +6,7 @@ import { TESTIMONIALS } from '@/lib/data';
 
 const Testimonials = () => {
   return (
-    <section id="yorumlar" className="section bg-slate-50 dark:bg-slate-800">
+    <section id="yorumlar" className="section bg-slate-800">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -48,7 +48,7 @@ const Testimonials = () => {
                     className={`${
                       i < testimonial.rating
                         ? 'fill-accent text-accent'
-                        : 'text-slate-300 dark:text-slate-600'
+                        : 'text-slate-600'
                     }`}
                     size={20}
                   />
@@ -56,27 +56,27 @@ const Testimonials = () => {
               </div>
 
               {/* Comment */}
-              <p className="text-slate-700 dark:text-slate-300 mb-4 italic">
+              <p className="text-slate-300 mb-4 italic">
                 "{testimonial.comment}"
               </p>
 
               {/* Author Info */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
+              <div className="pt-4 border-t border-slate-700">
                 <div className="flex items-center gap-3">
                   {/* Avatar */}
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="font-semibold text-white">{testimonial.name}</div>
                     {testimonial.vehicle && (
-                      <div className="text-sm text-slate-600 dark:text-slate-400">
+                      <div className="text-sm text-slate-400">
                         {testimonial.vehicle}
                       </div>
                     )}
                   </div>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-500 mt-2">
+                <div className="text-xs text-slate-500 mt-2">
                   {new Date(testimonial.date).toLocaleDateString('tr-TR', {
                     year: 'numeric',
                     month: 'long',
@@ -97,19 +97,19 @@ const Testimonials = () => {
         >
           <div className="text-center">
             <div className="text-4xl font-bold text-primary mb-2">5000+</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Mutlu Müşteri</div>
+            <div className="text-sm text-slate-400">Mutlu Müşteri</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-primary mb-2">%98</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Memnuniyet Oranı</div>
+            <div className="text-sm text-slate-400">Memnuniyet Oranı</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-primary mb-2">4.9</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Ortalama Puan</div>
+            <div className="text-sm text-slate-400">Ortalama Puan</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-primary mb-2">10+</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Yıllık Deneyim</div>
+            <div className="text-sm text-slate-400">Yıllık Deneyim</div>
           </div>
         </motion.div>
       </div>

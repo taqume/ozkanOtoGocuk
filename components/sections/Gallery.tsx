@@ -25,7 +25,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="galeri" className="section bg-white dark:bg-slate-900">
+    <section id="galeri" className="section bg-slate-900">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -50,7 +50,7 @@ const Gallery = () => {
 
         {/* Main Gallery Viewer */}
         <div className="max-w-5xl mx-auto mb-12">
-          <div className="relative bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden">
+          <div className="relative bg-slate-800 rounded-3xl overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedIndex}
@@ -74,22 +74,22 @@ const Gallery = () => {
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-slate-800 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
               aria-label="Önceki"
             >
-              <FiArrowLeft size={24} />
+              <FiArrowLeft size={24} className="text-white" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-800 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
               aria-label="Sonraki"
             >
-              <FiArrowRight size={24} />
+              <FiArrowRight size={24} className="text-white" />
             </button>
 
             {/* Counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-lg">
-              <span className="font-semibold">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 px-4 py-2 rounded-full shadow-lg">
+              <span className="font-semibold text-white">
                 {selectedIndex + 1} / {galleryItems.length}
               </span>
             </div>
@@ -97,10 +97,10 @@ const Gallery = () => {
 
           {/* Image Info */}
           <div className="text-center mt-6">
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="text-xl font-bold mb-2 text-white">
               {galleryItems[selectedIndex].title}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400">
+            <p className="text-slate-400">
               {galleryItems[selectedIndex].description}
             </p>
           </div>
@@ -118,7 +118,7 @@ const Gallery = () => {
               transition={{ delay: index * 0.02 }}
               className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
                 selectedIndex === index
-                  ? 'border-primary ring-2 ring-primary ring-offset-2 dark:ring-offset-slate-900'
+                  ? 'border-primary ring-2 ring-primary ring-offset-2 ring-offset-slate-900'
                   : 'border-transparent hover:border-primary/50'
               }`}
             >
@@ -143,7 +143,7 @@ const Gallery = () => {
           viewport={{ once: true }}
           className="text-center mt-12 max-w-2xl mx-auto"
         >
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-slate-400">
             💡 Galerimizdeki tüm işlemler profesyonel ekipmanlar ve uzman kadromuz tarafından gerçekleştirilmiştir.
           </p>
         </motion.div>

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
@@ -36,23 +35,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr" suppressHydrationWarning>
+    <html lang="tr" className="dark">
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-            <WhatsAppButton />
-          </div>
-        </ThemeProvider>
+        <div className="flex flex-col min-h-screen bg-slate-900 text-white">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppButton />
+        </div>
       </body>
     </html>
   );

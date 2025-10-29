@@ -32,12 +32,12 @@ export default function IletisimPage() {
       </section>
 
       {/* Contact Info & Map Section */}
-      <section className="section bg-white dark:bg-slate-900">
+      <section className="section bg-slate-900">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Cards */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold mb-8">İletişim Bilgileri</h2>
+              <h2 className="text-3xl font-bold mb-8 text-white">İletişim Bilgileri</h2>
 
               {/* Phone */}
               <a
@@ -49,8 +49,8 @@ export default function IletisimPage() {
                     <FiPhone size={28} className="text-primary group-hover:text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">Telefon</h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-1">
+                    <h3 className="text-xl font-semibold mb-2 text-white">Telefon</h3>
+                    <p className="text-slate-400 mb-1">
                       Bizi arayarak randevu alabilirsiniz
                     </p>
                     <p className="text-lg font-semibold text-primary">{CONTACT_INFO.phone}</p>
@@ -70,8 +70,8 @@ export default function IletisimPage() {
                     <FaWhatsapp size={28} className="text-[#25D366] group-hover:text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">WhatsApp</h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-1">
+                    <h3 className="text-xl font-semibold mb-2 text-white">WhatsApp</h3>
+                    <p className="text-slate-400 mb-1">
                       7/24 WhatsApp üzerinden mesaj gönderin
                     </p>
                     <p className="text-lg font-semibold text-[#25D366]">Mesaj Gönder</p>
@@ -86,11 +86,11 @@ export default function IletisimPage() {
                     <FiMapPin size={28} className="text-accent" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">Adres</h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-1">
+                    <h3 className="text-xl font-semibold mb-2 text-white">Adres</h3>
+                    <p className="text-slate-400 mb-1">
                       Bizi ziyaret ederek ücretsiz keşif yaptırabilirsiniz
                     </p>
-                    <p className="text-lg font-semibold">{CONTACT_INFO.address}</p>
+                    <p className="text-lg font-semibold text-white">{CONTACT_INFO.address}</p>
                   </div>
                 </div>
               </div>
@@ -102,8 +102,8 @@ export default function IletisimPage() {
                     <FiClock size={28} className="text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">Çalışma Saatleri</h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-1">Pazartesi - Pazar</p>
+                    <h3 className="text-xl font-semibold mb-2 text-white">Çalışma Saatleri</h3>
+                    <p className="text-slate-400 mb-1">Pazartesi - Pazar</p>
                     <p className="text-lg font-semibold text-primary">{CONTACT_INFO.workingHours}</p>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function IletisimPage() {
 
               {/* Social Media */}
               <div className="card border-2 border-transparent">
-                <h3 className="text-xl font-semibold mb-4">Sosyal Medya</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">Sosyal Medya</h3>
                 <div className="flex gap-4">
                   <a
                     href={CONTACT_INFO.social.facebook}
@@ -136,11 +136,11 @@ export default function IletisimPage() {
             {/* Map Placeholder */}
             <div className="lg:sticky lg:top-24 h-[600px]">
               <div className="card h-full p-0 overflow-hidden">
-                <div className="h-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                <div className="h-full bg-slate-800 flex items-center justify-center">
                   <div className="text-center p-8">
                     <div className="text-6xl mb-4">🗺️</div>
-                    <h3 className="text-xl font-semibold mb-2">Google Maps</h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-4">
+                    <h3 className="text-xl font-semibold mb-2 text-white">Google Maps</h3>
+                    <p className="text-slate-400 mb-4">
                       Buraya Google Maps embed kodu eklenebilir
                     </p>
                     <a
@@ -160,13 +160,13 @@ export default function IletisimPage() {
       </section>
 
       {/* Quick Contact CTA */}
-      <section className="section bg-slate-50 dark:bg-slate-800">
+      <section className="section bg-slate-800">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Hemen Randevu Alın
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-lg text-slate-400 mb-8">
               Size en uygun zamanda hizmet verebilmemiz için randevu almanızı öneriyoruz
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

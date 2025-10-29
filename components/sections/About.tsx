@@ -33,7 +33,7 @@ const About = () => {
   ];
 
   return (
-    <section id="hakkimizda" className="section bg-white dark:bg-slate-900">
+    <section id="hakkimizda" className="section bg-slate-900">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Image */}
@@ -56,15 +56,15 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
 
               {/* Overlay Stats Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-6">
+              <div className="absolute bottom-6 left-6 right-6 bg-slate-800 rounded-2xl shadow-2xl p-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-primary mb-1">5000+</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Başarılı İşlem</div>
+                    <div className="text-sm text-slate-400">Başarılı İşlem</div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-primary mb-1">%98</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Memnuniyet</div>
+                    <div className="text-sm text-slate-400">Memnuniyet</div>
                   </div>
                 </div>
               </div>
@@ -89,14 +89,14 @@ const About = () => {
               <span className="block text-primary">Boyasız Göçük Düzeltme Servisi</span>
             </h2>
 
-            <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
+            <p className="text-lg text-slate-400 mb-6">
               Özkan Oto olarak 2013 yılından beri aracınızın en önemli değeri olan 
               orijinal boyasını koruyarak göçük düzeltme hizmeti veriyoruz. Uzman 
               ekibimiz ve modern ekipmanlarımızla, aracınızı ilk günkü haline 
               kavuşturuyoruz.
             </p>
 
-            <p className="text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-slate-400 mb-8">
               PDR (Paintless Dent Repair - Boyasız Göçük Düzeltme) tekniğinde 
               uzmanlaşmış ekibimizle, kapı çizikleri, dolu hasarları ve park 
               kazalarından kaynaklanan göçükleri boyaya zarar vermeden onarıyoruz.
@@ -111,11 +111,11 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl"
+                  className="bg-slate-800 p-4 rounded-xl"
                 >
                   <div className="text-primary mb-2">{feature.icon}</div>
-                  <h3 className="font-semibold mb-1">{feature.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <h3 className="font-semibold mb-1 text-white">{feature.title}</h3>
+                  <p className="text-sm text-slate-400">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -136,7 +136,7 @@ const About = () => {
                   <div className="mt-1 bg-primary/10 text-primary p-1 rounded-full">
                     <FiCheck size={16} />
                   </div>
-                  <span className="text-sm text-slate-700 dark:text-slate-300">
+                  <span className="text-sm text-slate-300">
                     {advantage}
                   </span>
                 </motion.div>
