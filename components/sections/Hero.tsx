@@ -23,8 +23,27 @@ const Hero = () => {
         <div className="absolute inset-0 bg-slate-900/70"></div>
       </div>
 
+      {/* Welcome Man - Fixed to bottom right */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="absolute bottom-0 -right-0 z-10 hidden lg:block"
+      >
+        <div className="relative w-[750px] h-[900px]">
+          <Image
+            src="/images/hero/welcomeMan.png"
+            alt="Profesyonel Teknisyen"
+            fill
+            className="object-contain object-bottom"
+            priority
+            quality={90}
+          />
+        </div>
+      </motion.div>
+
       <div className="container-custom relative z-10 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-2xl">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -32,17 +51,6 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-white"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block mb-4"
-            >
-              <span className="bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
-                ⭐ Profesyonel Hizmet Garantisi
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,74 +99,28 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-700"
+              className="grid grid-cols-4 gap-6 mt-12 pt-8 border-t border-slate-700"
             >
-              <div>
+              <div className="flex flex-col items-center">
                 <div className="text-3xl font-bold text-primary mb-1">10+</div>
                 <div className="text-sm text-slate-400">Yıllık Deneyim</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-primary mb-1">5000+</div>
+              <div className="flex flex-col items-center">
+                <div className="text-3xl font-bold text-primary mb-1">∞</div>
                 <div className="text-sm text-slate-400">Mutlu Müşteri</div>
               </div>
-              <div>
+              <div className="flex flex-col items-center">
                 <div className="text-3xl font-bold text-primary mb-1">%100</div>
                 <div className="text-sm text-slate-400">Memnuniyet</div>
               </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Content - Overlay Man Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block"
-          >
-            <div className="relative w-full h-[700px]">
-              <Image
-                src="/images/hero/welcomeMan.png"
-                alt="Profesyonel Teknisyen"
-                fill
-                className="object-contain object-bottom"
-                priority
-                quality={90}
-              />
-            </div>
-
-            {/* Floating Cards */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute top-10 -right-10 bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-2xl p-4 max-w-[200px] border border-slate-700"
-            >
-              <div className="flex items-center gap-3">
-                <div className="bg-primary/10 p-3 rounded-xl">
-                  <FiPhone className="text-primary" size={24} />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-400">7/24 Destek</div>
-                  <div className="font-bold text-white">Hızlı Yanıt</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-              className="absolute bottom-10 -left-10 bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-2xl p-4 max-w-[200px] border border-slate-700"
-            >
-              <div className="flex items-center gap-3">
-                <div className="bg-accent/10 p-3 rounded-xl">
-                  <span className="text-2xl">🏆</span>
-                </div>
-                <div>
-                  <div className="text-xs text-slate-400">Garantili</div>
-                  <div className="font-bold text-white">Kalite</div>
-                </div>
+              <div className="flex flex-col items-center">
+                <div className="text-3xl font-bold text-primary mb-1">4.5/5</div>
+                <div className="text-sm text-slate-400 whitespace-nowrap">Google Değerlendirmesi</div>
               </div>
             </motion.div>
           </motion.div>
+
+
         </div>
       </div>
 
