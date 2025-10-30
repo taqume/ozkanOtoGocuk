@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SERVICES } from '@/lib/data';
-import { FiArrowRight } from 'react-icons/fi';
+import { SERVICES, getWhatsAppLink } from '@/lib/data';
+import { FiSend } from 'react-icons/fi';
+import { FaCar } from 'react-icons/fa';
 
 const Services = () => {
   return (
@@ -40,44 +40,25 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="card group hover:border-primary border-2 border-transparent"
+              className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6 flex items-center gap-4 hover:bg-slate-800/40 hover:border-primary/50 transition-all duration-300 group"
             >
               {/* Icon */}
-              <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform">
-                {service.icon}
+              <div className="text-4xl text-primary flex-shrink-0 transform group-hover:scale-110 transition-transform">
+                <FaCar />
               </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
+              {/* Content */}
+              <div className="flex-1">
+                {/* Title */}
+                <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
 
-              {/* Description */}
-              <p className="text-slate-400 mb-4">
-                {service.description}
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-center gap-2 text-sm text-slate-300"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Learn More Link */}
-              <Link
-                href="/hizmetlerimiz"
-                className="inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all"
-              >
-                Detaylı Bilgi
-                <FiArrowRight />
-              </Link>
+                {/* Description */}
+                <p className="text-slate-300 text-sm">
+                  {service.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -89,10 +70,15 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Link href="/hizmetlerimiz" className="btn-primary inline-flex items-center gap-2">
-            Tüm Hizmetleri Görüntüle
-            <FiArrowRight />
-          </Link>
+          <a 
+            href={getWhatsAppLink('Merhaba, hizmetleriniz hakkında fiyat bilgisi almak ve randevu oluşturmak istiyorum.')} 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex items-center gap-2"
+          >
+            <FiSend />
+            Fiyat Bilgisi / Randevu Alın
+          </a>
         </motion.div>
       </div>
     </section>

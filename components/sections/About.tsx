@@ -40,7 +40,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="space-y-6"
           >
             <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
               <Image
@@ -52,18 +52,18 @@ const About = () => {
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
+            </div>
 
-              {/* Overlay Stats Card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-slate-800 rounded-2xl shadow-2xl p-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-1">5000+</div>
-                    <div className="text-sm text-slate-400">Başarılı İşlem</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-1">%100</div>
-                    <div className="text-sm text-slate-400">Memnuniyet</div>
-                  </div>
+            {/* Stats Card - Below Image */}
+            <div className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">5000+</div>
+                  <div className="text-sm text-slate-300">Başarılı İşlem</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">%100</div>
+                  <div className="text-sm text-slate-300">Memnuniyet</div>
                 </div>
               </div>
             </div>
@@ -109,11 +109,11 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-slate-800 p-4 rounded-xl"
+                  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 p-4 rounded-xl hover:bg-slate-800/40 transition-all duration-300"
                 >
                   <div className="text-primary mb-2">{feature.icon}</div>
                   <h3 className="font-semibold mb-1 text-white">{feature.title}</h3>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-slate-300">
                     {feature.description}
                   </p>
                 </motion.div>
