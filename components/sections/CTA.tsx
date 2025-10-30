@@ -7,7 +7,7 @@ import { getWhatsAppLink, CONTACT_INFO } from '@/lib/data';
 
 const CTA = () => {
   return (
-    <section className="section bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <section id="iletisim" className="section bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[url('/images/hero/pattern.svg')] opacity-5"></div>
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl"></div>
@@ -32,8 +32,7 @@ const CTA = () => {
             </h2>
 
             <p className="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-              Boyasız göçük düzeltme ve kaporta onarımı için hemen bizimle iletişime geçin. 
-              Ücretsiz keşif ve fiyat teklifi alın!
+              Boyasız göçük düzeltme ve kaporta onarımı için hemen bizimle iletişime geçin.
             </p>
 
             {/* CTA Buttons */}
@@ -46,13 +45,6 @@ const CTA = () => {
               >
                 <FaWhatsapp size={24} />
                 WhatsApp ile İletişim
-                <motion.span
-                  className="inline-block"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
               </a>
 
               <a
@@ -111,36 +103,10 @@ const CTA = () => {
               >
                 <div className="text-3xl mb-4">⏰</div>
                 <h3 className="font-semibold mb-2">Çalışma Saatleri</h3>
-                <p className="text-slate-300">{CONTACT_INFO.workingHours}</p>
-                <p className="text-sm text-slate-400 mt-1">Pazartesi - Pazar</p>
+                <p className="text-slate-300">08:00 - 20:00</p>
+                <p className="text-sm text-slate-400 mt-1">Pazartesi - Cumartesi</p>
               </motion.div>
             </div>
-
-            {/* Trust Badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-400"
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span>
-                Ücretsiz Keşif
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span>
-                Sigorta Desteği
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span>
-                Garantili Hizmet
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span>
-                Hızlı Teslim
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

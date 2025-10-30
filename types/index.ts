@@ -20,7 +20,7 @@ export interface Testimonial {
   name: string;
   rating: number;
   comment: string;
-  date: string;
+  date?: string;
   vehicle?: string;
 }
 

@@ -11,15 +11,15 @@ const Footer = () => {
     <footer className="bg-slate-900 text-slate-300">
       {/* Main Footer */}
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Company Info */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-4">
-              <span className="text-primary">Özkan</span> Oto
+          <div className="lg:col-span-5">
+            <h3 className="text-xl font-bold mb-4">
+              <span className="text-primary">Özkan Oto</span>{' '}
+              <span className="text-white">Boyasız Göçük Düzeltme</span>
             </h3>
-            <p className="text-sm mb-4">
-              Profesyonel boyasız göçük düzeltme ve kaporta onarım hizmetleri. 
-              Aracınızın değerini koruyun.
+            <p className="text-sm mb-4 max-w-xs">
+              2013 yılından beri İstanbul'da profesyonel boyasız göçük düzeltme ve kaporta onarım hizmetleri sunuyoruz. Aracınızın orijinal değerini koruyun, uzman ekibimize güvenin.
             </p>
             <div className="flex gap-3">
               <a
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold text-white mb-4">Hızlı Linkler</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -53,17 +53,22 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/hizmetlerimiz" className="hover:text-primary transition-colors">
+                <Link href="/#hakkimizda" className="hover:text-primary transition-colors">
+                  Biz Kimiz?
+                </Link>
+              </li>
+              <li>
+                <Link href="/#hizmetler" className="hover:text-primary transition-colors">
                   Hizmetlerimiz
                 </Link>
               </li>
               <li>
-                <Link href="/hakkimizda" className="hover:text-primary transition-colors">
-                  Hakkımızda
+                <Link href="/galeri" className="hover:text-primary transition-colors">
+                  Galeri
                 </Link>
               </li>
               <li>
-                <Link href="/iletisim" className="hover:text-primary transition-colors">
+                <Link href="/#iletisim" className="hover:text-primary transition-colors">
                   İletişim
                 </Link>
               </li>
@@ -71,7 +76,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold text-white mb-4">Hizmetlerimiz</h4>
             <ul className="space-y-2 text-sm">
               <li>Boyasız Göçük Düzeltme (PDR)</li>
@@ -84,7 +89,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="lg:col-span-3">
             <h4 className="text-lg font-semibold text-white mb-4">İletişim</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
@@ -109,18 +114,10 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-slate-800">
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+          <div className="text-center text-sm">
             <p>
               © {currentYear} Özkan Oto Boyasız Göçük Düzeltme. Tüm hakları saklıdır.
             </p>
-            <div className="flex gap-4">
-              <Link href="#" className="hover:text-primary transition-colors">
-                Gizlilik Politikası
-              </Link>
-              <Link href="#" className="hover:text-primary transition-colors">
-                Kullanım Koşulları
-              </Link>
-            </div>
           </div>
         </div>
       </div>

@@ -56,14 +56,18 @@ const About = () => {
 
             {/* Stats Card - Below Image */}
             <div className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-6">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">5000+</div>
-                  <div className="text-sm text-slate-300">Başarılı İşlem</div>
+                  <div className="text-3xl font-bold text-primary mb-1">∞</div>
+                  <div className="text-xs text-slate-300">Mutlu Müşteri</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">10+</div>
+                  <div className="text-xs text-slate-300">Yıllık Deneyim</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary mb-1">%100</div>
-                  <div className="text-sm text-slate-300">Memnuniyet</div>
+                  <div className="text-xs text-slate-300">Memnuniyet</div>
                 </div>
               </div>
             </div>

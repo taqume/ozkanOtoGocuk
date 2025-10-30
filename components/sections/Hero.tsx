@@ -87,7 +87,7 @@ const Hero = () => {
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
-                href="/hizmetlerimiz"
+                href="/#hizmetler"
                 className="btn-outline flex items-center justify-center gap-2"
               >
                 Hizmetlerimiz

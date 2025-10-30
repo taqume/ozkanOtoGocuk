@@ -10,23 +10,51 @@ import { CONTACT_INFO } from '@/lib/data';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Active section detection for anchor links
+      if (pathname === '/') {
+        const sections = ['hakkimizda', 'hizmetler', 'galeri', 'iletisim'];
+        const scrollPosition = window.scrollY + 200;
+
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              return;
+            }
+          }
+        }
+        setActiveSection('');
+      }
     };
+    
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
   const navLinks = [
-    { href: '/', label: 'Ana Sayfa' },
-    { href: '/hizmetlerimiz', label: 'Hizmetlerimiz' },
-    { href: '/galeri', label: 'Galeri' },
-    { href: '/hakkimizda', label: 'Hakkımızda' },
-    { href: '/iletisim', label: 'İletişim' },
+    { href: '/', label: 'Ana Sayfa', id: '' },
+    { href: '/#hakkimizda', label: 'Biz Kimiz?', id: 'hakkimizda' },
+    { href: '/#hizmetler', label: 'Hizmetlerimiz', id: 'hizmetler' },
+    { href: '/galeri', label: 'Galeri', id: 'galeri' },
+    { href: '/#iletisim', label: 'İletişim', id: 'iletisim' },
   ];
+
+  const isLinkActive = (link: typeof navLinks[0]) => {
+    if (pathname === '/galeri' && link.href === '/galeri') return true;
+    if (pathname === '/' && link.id === activeSection) return true;
+    if (pathname === '/' && link.href === '/' && !activeSection) return true;
+    return false;
+  };
 
   return (
     <header
@@ -58,7 +86,7 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition-colors ${
-                  pathname === link.href
+                  isLinkActive(link)
                     ? 'text-primary'
                     : 'text-white hover:text-primary'
                 }`}
@@ -94,7 +122,7 @@ const Header = () => {
 
             {/* CTA Button */}
             <Link
-              href="/iletisim"
+              href="/#iletisim"
               className="btn-primary text-sm py-2 px-5"
             >
               Randevu Al
@@ -156,7 +184,7 @@ const Header = () => {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`font-medium transition-colors ${
-                    pathname === link.href
+                    isLinkActive(link)
                       ? 'text-primary'
                       : 'text-slate-300 hover:text-primary'
                   }`}
@@ -189,7 +217,7 @@ const Header = () => {
 
               {/* Mobile CTA */}
               <Link
-                href="/iletisim"
+                href="/#iletisim"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="btn-primary text-center text-sm"
               >

@@ -1,12 +1,29 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BRANDS } from '@/lib/data';
 
 const Brands = () => {
-  // Logos iki kere tekrarlayarak smooth infinite scroll efekti
-  const duplicatedBrands = [...BRANDS, ...BRANDS];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll effect (left to right - continuous)
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scroll = () => {
+      if (scrollContainer.scrollLeft <= 0) {
+        scrollContainer.scrollLeft = scrollContainer.scrollWidth / 2;
+      } else {
+        scrollContainer.scrollLeft -= 1;
+      }
+    };
+
+    const intervalId = setInterval(scroll, 30);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section id="markalar" className="section bg-slate-900 overflow-hidden">
@@ -32,94 +49,30 @@ const Brands = () => {
           </p>
         </motion.div>
 
-        {/* Animated Brands Slider */}
-        <div className="relative">
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10"></div>
-
-          {/* Sliding Container */}
-          <motion.div
-            className="flex gap-12 items-center"
-            animate={{
-              x: [0, -1000],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-          >
-            {duplicatedBrands.map((brand, index) => (
-              <div
-                key={`${brand.id}-${index}`}
-                className="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-slate-800 rounded-2xl shadow-lg p-4 hover:scale-110 transition-transform"
-              >
-                <div className="relative w-full h-full">
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    fill
-                    className="object-contain"
-                    sizes="128px"
-                  />
-                </div>
+        {/* Auto-Scrolling Brands Carousel */}
+        <div
+          ref={scrollRef}
+          className="flex gap-8 overflow-x-hidden pb-4"
+          style={{ scrollBehavior: 'auto' }}
+        >
+          {/* Duplicate brands for seamless loop */}
+          {[...BRANDS, ...BRANDS].map((brand, index) => (
+            <div
+              key={`${brand.id}-${index}`}
+              className="flex-shrink-0 w-32 h-32 flex items-center justify-center bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-4 transition-transform"
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  fill
+                  className="object-contain"
+                  sizes="128px"
+                />
               </div>
-            ))}
-          </motion.div>
+            </div>
+          ))}
         </div>
-
-        {/* Brand List Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <div className="inline-flex flex-wrap justify-center gap-3 max-w-4xl">
-            {BRANDS.map((brand) => (
-              <span
-                key={brand.id}
-                className="bg-slate-800 px-4 py-2 rounded-full text-sm font-medium text-white"
-              >
-                {brand.name}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto"
-        >
-          <div className="text-center p-6 bg-slate-800 rounded-2xl">
-            <div className="text-3xl mb-3">🔧</div>
-            <h3 className="font-semibold mb-2 text-white">Her Marka</h3>
-            <p className="text-sm text-slate-400">
-              Tüm araç markalarına özel hizmet
-            </p>
-          </div>
-          <div className="text-center p-6 bg-slate-800 rounded-2xl">
-            <div className="text-3xl mb-3">⚡</div>
-            <h3 className="font-semibold mb-2 text-white">Hızlı Servis</h3>
-            <p className="text-sm text-slate-400">
-              Aynı gün teslim imkanı
-            </p>
-          </div>
-          <div className="text-center p-6 bg-slate-800 rounded-2xl">
-            <div className="text-3xl mb-3">✨</div>
-            <h3 className="font-semibold mb-2 text-white">Orijinal Kalite</h3>
-            <p className="text-sm text-slate-400">
-              Fabrika çıkışı standartları
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
