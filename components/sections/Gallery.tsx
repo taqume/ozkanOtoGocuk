@@ -1,31 +1,41 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { FiX, FiArrowRight } from 'react-icons/fi';
 
 const Gallery = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Galeri görselleri - kolaj formatında
-  const galleryItems = Array.from({ length: 22 }, (_, i) => ({
+  // Galeri görselleri - 35 adet
+  const galleryItems = Array.from({ length: 35 }, (_, i) => ({
     id: i + 1,
     image: `/images/gallery/g${i + 1}.jpg`,
-    title: `Başarılı Onarım ${i + 1}`,
-    description: 'Profesyonel boyasız göçük düzeltme',
   }));
 
-  const nextSlide = () => {
-    setSelectedIndex((prev) => (prev + 1) % galleryItems.length);
-  };
+  // Auto-scroll effect (right to left) - 1.5x speed
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer || isPaused) return;
 
-  const prevSlide = () => {
-    setSelectedIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
-  };
+    const scroll = () => {
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
+      } else {
+        scrollContainer.scrollLeft += 1.5;
+      }
+    };
+
+    const intervalId = setInterval(scroll, 30);
+    return () => clearInterval(intervalId);
+  }, [isPaused]);
 
   return (
-    <section id="galeri" className="section bg-slate-900">
+    <section id="galeri" className="section bg-slate-900 overflow-hidden">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -48,91 +58,34 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        {/* Main Gallery Viewer */}
-        <div className="max-w-5xl mx-auto mb-12">
-          <div className="relative bg-slate-800 rounded-3xl overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedIndex}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="relative aspect-[4/3] w-full"
-              >
-                <Image
-                  src={galleryItems[selectedIndex].image}
-                  alt={galleryItems[selectedIndex].title}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  priority={selectedIndex === 0}
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-slate-800 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-              aria-label="Önceki"
-            >
-              <FiArrowLeft size={24} className="text-white" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-800 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-              aria-label="Sonraki"
-            >
-              <FiArrowRight size={24} className="text-white" />
-            </button>
-
-            {/* Counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 px-4 py-2 rounded-full shadow-lg">
-              <span className="font-semibold text-white">
-                {selectedIndex + 1} / {galleryItems.length}
-              </span>
-            </div>
-          </div>
-
-          {/* Image Info */}
-          <div className="text-center mt-6">
-            <h3 className="text-xl font-bold mb-2 text-white">
-              {galleryItems[selectedIndex].title}
-            </h3>
-            <p className="text-slate-400">
-              {galleryItems[selectedIndex].description}
-            </p>
-          </div>
-        </div>
-
-        {/* Thumbnail Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 max-w-6xl mx-auto">
-          {galleryItems.map((item, index) => (
-            <motion.button
-              key={item.id}
-              onClick={() => setSelectedIndex(index)}
+        {/* Auto-Scrolling Carousel */}
+        <div
+          ref={scrollRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="flex gap-4 overflow-x-hidden mb-12 pb-4 py-2"
+          style={{ scrollBehavior: 'auto' }}
+        >
+          {/* Duplicate items for seamless loop */}
+          {[...galleryItems, ...galleryItems].map((item, index) => (
+            <motion.div
+              key={`${item.id}-${index}`}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.02 }}
-              className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                selectedIndex === index
-                  ? 'border-primary ring-2 ring-primary ring-offset-2 ring-offset-slate-900'
-                  : 'border-transparent hover:border-primary/50'
-              }`}
+              onClick={() => setSelectedImage(item.id - 1)}
+              className="relative flex-shrink-0 w-80 h-60 rounded-xl overflow-visible cursor-pointer group"
             >
-              <Image
-                src={item.image}
-                alt={`Thumbnail ${item.id}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 33vw, (max-width: 1200px) 20vw, 150px"
-              />
-              <div className={`absolute inset-0 bg-black/20 transition-opacity ${
-                selectedIndex === index ? 'opacity-0' : 'opacity-100 hover:opacity-50'
-              }`} />
-            </motion.button>
+              <div className="relative w-full h-full rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:ring-4 group-hover:ring-primary">
+                <Image
+                  src={item.image}
+                  alt={`Galeri ${item.id}`}
+                  fill
+                  className="object-cover"
+                  sizes="320px"
+                />
+              </div>
+            </motion.div>
           ))}
         </div>
 
@@ -141,13 +94,63 @@ const Gallery = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-12 max-w-2xl mx-auto"
+          className="text-center mb-8"
         >
-          <p className="text-slate-400">
+          <p className="text-slate-400 text-base">
             💡 Galerimizdeki tüm işlemler profesyonel ekipmanlar ve uzman kadromuz tarafından gerçekleştirilmiştir.
           </p>
         </motion.div>
+
+        {/* View All Gallery Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Link href="/galeri" className="btn-primary inline-flex items-center gap-2">
+            Tüm Galeriyi Görüntüle
+            <FiArrowRight />
+          </Link>
+        </motion.div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 p-2 bg-slate-800 rounded-full hover:bg-slate-700 transition-colors"
+              aria-label="Kapat"
+            >
+              <FiX size={24} className="text-white" />
+            </button>
+            
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl aspect-[4/3]"
+            >
+              <Image
+                src={galleryItems[selectedImage].image}
+                alt={`Galeri ${selectedImage + 1}`}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -23,6 +23,7 @@ const Header = () => {
   const navLinks = [
     { href: '/', label: 'Ana Sayfa' },
     { href: '/hizmetlerimiz', label: 'Hizmetlerimiz' },
+    { href: '/galeri', label: 'Galeri' },
     { href: '/hakkimizda', label: 'Hakkımızda' },
     { href: '/iletisim', label: 'İletişim' },
   ];
