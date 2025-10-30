@@ -9,7 +9,7 @@ const About = () => {
     {
       icon: <FiAward size={24} />,
       title: 'Uzman Kadro',
-      description: '10+ yıllık deneyime sahip sertifikalı teknisyenlerimiz',
+      description: '10+ yıllık deneyime sahip teknisyenlerimiz',
     },
     {
       icon: <FiUsers size={24} />,
@@ -28,8 +28,6 @@ const About = () => {
     'Aracınızın orijinal değerini koruma',
     'Hızlı ve kaliteli işçilik garantisi',
     'Uygun fiyat politikası',
-    'Sigorta işlemlerinde destek',
-    'Ücretsiz keşif ve danışmanlık',
   ];
 
   return (
@@ -46,7 +44,7 @@ const About = () => {
           >
             <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
               <Image
-                src="/images/hero/welcomeMan.png"
+                src="/images/hero/aboutImage.jpg"
                 alt="Özkan Oto Profesyonel Ekip"
                 fill
                 className="object-cover"
@@ -63,7 +61,7 @@ const About = () => {
                     <div className="text-sm text-slate-400">Başarılı İşlem</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-1">%98</div>
+                    <div className="text-3xl font-bold text-primary mb-1">%100</div>
                     <div className="text-sm text-slate-400">Memnuniyet</div>
                   </div>
                 </div>
