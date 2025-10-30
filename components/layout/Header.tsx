@@ -31,45 +31,27 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg py-2'
+          ? 'bg-slate-800/40 backdrop-blur-xl shadow-2xl border-b border-white/10 py-3'
           : 'bg-transparent py-2'
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between gap-6">
-          {/* Logo + Contact Info Group */}
-          <div className="flex items-center gap-4">
-            {/* Logo - Fixed size, no padding effect */}
-            <Link href="/" className="flex items-center group">
-              <div className="relative w-16 h-16 transition-transform group-hover:scale-105">
-                <Image
-                  src="/images/logo/logo.png"
-                  alt="Özkan Oto Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </Link>
-
-            {/* Phone and Hours - Stacked, closer to logo */}
-            <div className="hidden lg:flex flex-col gap-1">
-              <a
-                href={`tel:${CONTACT_INFO.phone}`}
-                className="flex items-center gap-2 text-white hover:text-primary transition-colors"
-              >
-                <FiPhone size={16} />
-                <span className="font-semibold text-sm">{CONTACT_INFO.phone}</span>
-              </a>
-              <div className="flex items-center gap-2 text-slate-400 text-xs">
-                <FiClock size={14} />
-                <span>{CONTACT_INFO.workingHours}</span>
-              </div>
+        <div className="flex items-center gap-6">
+          {/* Left: Logo Only */}
+          <Link href="/" className="flex items-center group">
+            <div className="relative w-56 h-16 transition-transform group-hover:scale-105">
+              <Image
+                src="/images/logo/logo.png"
+                alt="Özkan Oto Logo"
+                fill
+                className="object-contain object-left"
+                priority
+              />
             </div>
-          </div>
+          </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Center: Desktop Navigation - Fully Centered */}
+          <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -85,8 +67,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Social Media + CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Right: Social Media + CTA Button + Phone/Hours - Compact */}
+          <div className="hidden lg:flex items-center gap-3">
             {/* Social Media Icons */}
             <div className="flex items-center gap-2">
               <a
@@ -116,6 +98,21 @@ const Header = () => {
             >
               Randevu Al
             </Link>
+
+            {/* Phone and Hours - After CTA */}
+            <div className="flex flex-col gap-1">
+              <a
+                href={`tel:${CONTACT_INFO.phone}`}
+                className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+              >
+                <FiPhone size={16} />
+                <span className="font-semibold text-sm">{CONTACT_INFO.phone}</span>
+              </a>
+              <div className="flex items-center gap-2 text-slate-400 text-xs">
+                <FiClock size={14} />
+                <span>{CONTACT_INFO.workingHours}</span>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
