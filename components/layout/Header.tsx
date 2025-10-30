@@ -41,6 +41,18 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { href: '/', label: 'Ana Sayfa', id: '' },
     { href: '/#hakkimizda', label: 'Biz Kimiz?', id: 'hakkimizda' },
@@ -59,16 +71,16 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? 'bg-slate-800/40 backdrop-blur-xl shadow-2xl border-b border-white/10 py-3'
           : 'bg-transparent py-2'
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center justify-between gap-6">
           {/* Left: Logo Only */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-56 h-16 transition-transform group-hover:scale-105">
+            <div className="relative w-40 sm:w-56 h-12 sm:h-16 transition-transform group-hover:scale-105">
               <Image
                 src="/images/logo/logo.png"
                 alt="Özkan Oto Logo"
@@ -144,10 +156,10 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle - Right Side */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-slate-800/50 transition-colors ml-auto"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -158,71 +170,73 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full glassmorphism overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-slate-800">
-            <div className="flex flex-col gap-4">
-              {/* Mobile Contact Info */}
-              <div className="pb-4 border-b border-slate-800">
-                <a
-                  href={`tel:${CONTACT_INFO.phone}`}
-                  className="flex items-center gap-2 text-white hover:text-primary transition-colors mb-2"
-                >
-                  <FiPhone size={16} />
-                  <span className="font-semibold text-sm">{CONTACT_INFO.phone}</span>
-                </a>
-                <div className="flex items-center gap-2 text-slate-400 text-xs">
-                  <FiClock size={14} />
-                  <span>{CONTACT_INFO.workingHours}</span>
+          <div className="lg:hidden absolute left-0 right-0 top-full bg-slate-800/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+            <div className="container-custom py-6">
+              <div className="flex flex-col gap-4">
+                {/* Mobile Contact Info */}
+                <div className="pb-4 border-b border-slate-800">
+                  <a
+                    href={`tel:${CONTACT_INFO.phone}`}
+                    className="flex items-center gap-2 text-white hover:text-primary transition-colors mb-2"
+                  >
+                    <FiPhone size={16} />
+                    <span className="font-semibold text-sm">{CONTACT_INFO.phone}</span>
+                  </a>
+                  <div className="flex items-center gap-2 text-slate-400 text-xs">
+                    <FiClock size={14} />
+                    <span>{CONTACT_INFO.workingHours}</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Mobile Nav Links */}
-              {navLinks.map((link) => (
+                {/* Mobile Nav Links */}
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`font-medium transition-colors ${
+                      isLinkActive(link)
+                        ? 'text-primary'
+                        : 'text-slate-300 hover:text-primary'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+
+                {/* Mobile Social Media */}
+                <div className="flex items-center gap-2 pt-4 border-t border-slate-800">
+                  <a
+                    href={CONTACT_INFO.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-slate-800 text-white hover:bg-blue-600 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <FiFacebook size={18} />
+                  </a>
+                  <a
+                    href={CONTACT_INFO.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-slate-800 text-white hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all"
+                    aria-label="Instagram"
+                  >
+                    <FiInstagram size={18} />
+                  </a>
+                </div>
+
+                {/* Mobile CTA */}
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  href="/#iletisim"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-medium transition-colors ${
-                    isLinkActive(link)
-                      ? 'text-primary'
-                      : 'text-slate-300 hover:text-primary'
-                  }`}
+                  className="btn-primary text-center text-sm"
                 >
-                  {link.label}
+                  Randevu Al
                 </Link>
-              ))}
-
-              {/* Mobile Social Media */}
-              <div className="flex items-center gap-2 pt-4 border-t border-slate-800">
-                <a
-                  href={CONTACT_INFO.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-slate-800 text-white hover:bg-blue-600 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <FiFacebook size={18} />
-                </a>
-                <a
-                  href={CONTACT_INFO.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-slate-800 text-white hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all"
-                  aria-label="Instagram"
-                >
-                  <FiInstagram size={18} />
-                </a>
               </div>
-
-              {/* Mobile CTA */}
-              <Link
-                href="/#iletisim"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary text-center text-sm"
-              >
-                Randevu Al
-              </Link>
             </div>
           </div>
         )}

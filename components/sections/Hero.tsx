@@ -99,23 +99,23 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="grid grid-cols-4 gap-6 mt-12 pt-8 border-t border-slate-700"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 pt-8 border-t border-slate-700"
             >
               <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-primary mb-1">10+</div>
-                <div className="text-sm text-slate-400">Yıllık Deneyim</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">10+</div>
+                <div className="text-xs md:text-sm text-slate-400">Yıllık Deneyim</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-primary mb-1">∞</div>
-                <div className="text-sm text-slate-400">Mutlu Müşteri</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">∞</div>
+                <div className="text-xs md:text-sm text-slate-400">Mutlu Müşteri</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-primary mb-1">%100</div>
-                <div className="text-sm text-slate-400">Memnuniyet</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">%100</div>
+                <div className="text-xs md:text-sm text-slate-400">Memnuniyet</div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-primary mb-1">4.5/5</div>
-                <div className="text-sm text-slate-400 whitespace-nowrap">Google Değerlendirmesi</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">4.5/5</div>
+                <div className="text-xs md:text-sm text-slate-400 whitespace-nowrap">Google Değerlendirmesi</div>
               </div>
             </motion.div>
           </motion.div>

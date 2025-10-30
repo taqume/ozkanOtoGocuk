@@ -10,18 +10,18 @@ const Footer = () => {
   return (
     <footer className="bg-slate-900 text-slate-300">
       {/* Main Footer */}
-      <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+      <div className="container-custom py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8">
           {/* Company Info */}
           <div className="lg:col-span-5">
-            <h3 className="text-xl font-bold mb-4">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
               <span className="text-primary">Özkan Oto</span>{' '}
               <span className="text-white">Boyasız Göçük Düzeltme</span>
             </h3>
-            <p className="text-sm mb-4 max-w-xs">
+            <p className="text-xs md:text-sm mb-3 md:mb-4 max-w-xs">
               2013 yılından beri İstanbul'da profesyonel boyasız göçük düzeltme ve kaporta onarım hizmetleri sunuyoruz. Aracınızın orijinal değerini koruyun, uzman ekibimize güvenin.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2 md:gap-3">
               <a
                 href={CONTACT_INFO.social.facebook}
                 target="_blank"
@@ -45,8 +45,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-lg font-semibold text-white mb-4">Hızlı Linkler</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">Hızlı Linkler</h4>
+            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
               <li>
                 <Link href="/" className="hover:text-primary transition-colors">
                   Ana Sayfa
@@ -77,8 +77,8 @@ const Footer = () => {
 
           {/* Services */}
           <div className="lg:col-span-2">
-            <h4 className="text-lg font-semibold text-white mb-4">Hizmetlerimiz</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">Hizmetlerimiz</h4>
+            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm">
               <li>Boyasız Göçük Düzeltme (PDR)</li>
               <li>Kaporta Düzeltme</li>
               <li>Dolu Hasarı Onarımı</li>
@@ -90,8 +90,8 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="lg:col-span-3">
-            <h4 className="text-lg font-semibold text-white mb-4">İletişim</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">İletişim</h4>
+            <ul className="space-y-2 md:space-y-3 text-xs md:text-sm">
               <li className="flex items-start gap-2">
                 <FiMapPin className="mt-1 flex-shrink-0 text-primary" size={18} />
                 <span>{CONTACT_INFO.address}</span>
@@ -113,8 +113,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-slate-800">
-        <div className="container-custom py-6">
-          <div className="text-center text-sm">
+        <div className="container-custom py-4 md:py-6">
+          <div className="text-center text-xs md:text-sm">
             <p>
               © {currentYear} Özkan Oto Boyasız Göçük Düzeltme. Tüm hakları saklıdır.
             </p>

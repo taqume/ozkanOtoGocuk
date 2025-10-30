@@ -34,15 +34,15 @@ const About = () => {
     <section id="hakkimizda" className="section bg-slate-900 min-h-screen flex items-center">
       <div className="container-custom w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Image */}
+          {/* Left - Image (Order 2 on mobile, Order 1 on desktop) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-6 order-2 lg:order-1"
           >
-            <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
+            <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
               <Image
                 src="/images/hero/aboutImage.jpg"
                 alt="Özkan Oto Profesyonel Ekip"
@@ -73,12 +73,13 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Right - Content */}
+          {/* Right - Content (Order 1 on mobile, Order 2 on desktop) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="order-1 lg:order-2"
           >
             <div className="inline-block mb-4">
               <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
