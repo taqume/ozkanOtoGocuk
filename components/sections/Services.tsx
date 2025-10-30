@@ -7,8 +7,8 @@ import { FaCar } from 'react-icons/fa';
 
 const Services = () => {
   return (
-    <section id="hizmetler" className="section bg-slate-800">
-      <div className="container-custom">
+    <section id="hizmetler" className="section bg-slate-800 min-h-screen flex items-center">
+      <div className="container-custom w-full">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

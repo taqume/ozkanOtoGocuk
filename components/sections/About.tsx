@@ -31,8 +31,8 @@ const About = () => {
   ];
 
   return (
-    <section id="hakkimizda" className="section bg-slate-900">
-      <div className="container-custom">
+    <section id="hakkimizda" className="section bg-slate-900 min-h-screen flex items-center">
+      <div className="container-custom w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Image */}
           <motion.div

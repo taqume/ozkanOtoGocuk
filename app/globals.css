@@ -20,6 +20,11 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Scroll offset for fixed header */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
 }
 
 @layer components {
