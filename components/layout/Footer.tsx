@@ -19,7 +19,7 @@ const Footer = () => {
               <span className="text-white">Boyasız Göçük Düzeltme</span>
             </h3>
             <p className="text-xs md:text-sm mb-3 md:mb-4 max-w-xs">
-              2013 yılından beri İstanbul'da profesyonel boyasız göçük düzeltme ve kaporta onarım hizmetleri sunuyoruz. Aracınızın orijinal değerini koruyun, uzman ekibimize güvenin.
+              2013 yılından beri İstanbul&apos;da profesyonel boyasız göçük düzeltme ve kaporta onarım hizmetleri sunuyoruz. Aracınızın orijinal değerini koruyun, uzman ekibimize güvenin.
             </p>
             <div className="flex gap-2 md:gap-3">
               <a

@@ -45,7 +45,7 @@ const Brands = () => {
             <span className="block text-primary">Uzman Hizmet</span>
           </h2>
           <p className="section-subtitle">
-            Mercedes'ten Volkswagen'e, tüm araç markalarında profesyonel hizmet
+            Mercedes&apos;ten Volkswagen&apos;e, tüm araç markalarında profesyonel hizmet
           </p>
         </motion.div>
 

@@ -88,7 +88,7 @@ const About = () => {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              İstanbul'un En Güvenilir
+              İstanbul&apos;un En Güvenilir
               <span className="block text-primary">Boyasız Göçük Düzeltme Servisi</span>
             </h2>
 
