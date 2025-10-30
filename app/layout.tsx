@@ -17,10 +17,13 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Özkan Oto Boyasız Göçük Düzeltme | PDR Uzmanı İstanbul',
+  title: 'Özkan Oto Boyasız Göçük Düzeltme',
   description: 'İstanbul\'da profesyonel boyasız göçük düzeltme (PDR), kaporta onarımı ve dolu hasarı hizmeti. Aracınızın değerini koruyun.',
   keywords: 'boyasız göçük düzeltme, PDR, kaporta onarımı, dolu hasarı, İstanbul, Gaziosmanpaşa',
   authors: [{ name: 'Özkan Oto' }],
+  icons: {
+    icon: '/images/logo/icon.png',
+  },
   openGraph: {
     title: 'Özkan Oto Boyasız Göçük Düzeltme',
     description: 'Profesyonel boyasız göçük düzeltme hizmeti',

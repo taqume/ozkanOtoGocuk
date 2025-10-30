@@ -1,12 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  // Set page title
+  useEffect(() => {
+    document.title = 'Galeri - Özkan Oto Boyasız Göçük Düzeltme';
+  }, []);
 
   // Galeri görselleri - 35 adet
   const galleryItems = Array.from({ length: 35 }, (_, i) => ({
