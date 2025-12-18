@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Full Screen Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/welcomeImage.jpg"
+          src="/images/hero/welcomeImage.png"
           alt="Oto Servis Arka Plan"
           fill
           className="object-cover"

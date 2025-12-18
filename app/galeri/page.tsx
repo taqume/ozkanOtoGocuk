@@ -13,8 +13,8 @@ export default function GalleryPage() {
     document.title = 'Galeri - Özkan Oto Boyasız Göçük Düzeltme';
   }, []);
 
-  // Galeri görselleri - 35 adet
-  const galleryItems = Array.from({ length: 35 }, (_, i) => ({
+  // Galeri görselleri - 53 adet
+  const galleryItems = Array.from({ length: 53 }, (_, i) => ({
     id: i + 1,
     image: `/images/gallery/g${i + 1}.jpg`,
   }));
