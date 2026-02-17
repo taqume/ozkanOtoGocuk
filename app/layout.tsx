@@ -23,13 +23,19 @@ export const metadata: Metadata = {
   keywords: 'boyasız göçük düzeltme, PDR, kaporta onarımı, dolu hasarı, İstanbul, Gaziosmanpaşa',
   authors: [{ name: 'Özkan Oto' }],
   icons: {
-    icon: '/images/logo/icon.png',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/images/logo/icon.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: '/images/logo/icon.png',
   },
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Özkan Oto Boyasız Göçük Düzeltme',
     description: 'Profesyonel boyasız göçük düzeltme hizmeti',
     type: 'website',
     locale: 'tr_TR',
+    images: ['/images/logo/icon.png'],
   },
 };
 
