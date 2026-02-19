@@ -46,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className="dark">
-      <head>
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
@@ -64,8 +64,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
+        
         <div className="flex flex-col min-h-screen bg-slate-900 text-white">
           <Header />
           <main className="flex-grow">
